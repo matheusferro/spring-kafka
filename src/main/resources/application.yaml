@@ -1,11 +1,15 @@
+server:
+  port: 0
+
 spring:
   kafka:
     listener:
-      ack-mode: manual_immediate
+#      ack-mode: manual #shouldn't throw exception, but the messages will not commit and be reprocessed
+      ack-mode: manual_immediate #try commit immediately, although the "configuration is less than time of the proccess
     consumer:
       bootstrap-servers: localhost:9092
       group-id: group_id
-      auto-offset-reset: earliest
+#      auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       enable-auto-commit: false

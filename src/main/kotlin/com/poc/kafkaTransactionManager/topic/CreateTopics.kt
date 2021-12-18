@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration
 class CreateTopics {
 
     @Bean
-    fun topic(): NewTopic = NewTopic(TOPICS.NAME, 1, 1)
+    fun topic(): NewTopic = NewTopic(TOPICS.NAME, 3, 1)
 }
 
 

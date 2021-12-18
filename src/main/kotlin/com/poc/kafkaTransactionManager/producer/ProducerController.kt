@@ -21,7 +21,7 @@ class ProducerController(
 
     @PostMapping("/send")
     fun send(@RequestBody sendModel: SendModel): ResponseEntity<Any> {
-        for(id in 0..10000) {
+        for(id in 0..1000) {
             ProducerRecord(TOPICS.NAME, id, jacksonMapper.writeValueAsString(sendModel))
                 .let { record ->
                     record.headers().add(TOPICS.HEADER_KEY, TOPICS.HEADER_VALUE.toByteArray())
