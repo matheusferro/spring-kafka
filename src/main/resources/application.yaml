@@ -4,8 +4,8 @@ server:
 spring:
   kafka:
     listener:
-#      ack-mode: manual #shouldn't throw exception, but the messages will not commit and be reprocessed
-      ack-mode: manual_immediate #try commit immediately, although the "configuration is less than time of the proccess
+      ack-mode: manual #shouldn't throw exception, but the messages will not commit and be reprocessed
+#      ack-mode: manual_immediate #try commit immediately, although the "configuration is less than time of the proccess
     consumer:
       bootstrap-servers: localhost:9092
       group-id: group_id
