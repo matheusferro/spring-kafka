@@ -1,5 +1,6 @@
 package com.poc.kafkaTransactionManager.listener
 
+import com.poc.kafkaTransactionManager.topic.TOPICS
 import org.apache.kafka.clients.consumer.ConsumerInterceptor
 import org.apache.kafka.clients.consumer.ConsumerRecords
 import org.apache.kafka.clients.consumer.OffsetAndMetadata
@@ -15,7 +16,7 @@ class ListenerInterceptor : ConsumerInterceptor<Any, Any> {
         records?.partitions()?.forEach { topicPartition ->
             records.records(topicPartition).forEach { consumerRecord ->
                 val myHeaders: MutableList<Header> = mutableListOf()
-                consumerRecord.headers().headers("Header1").forEach(myHeaders::add)
+                consumerRecord.headers().headers(TOPICS.HEADER_KEY).forEach(myHeaders::add)
                 log.info("HEADERS FOUND: $myHeaders")
             }
         }

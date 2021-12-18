@@ -14,4 +14,6 @@ class CreateTopics {
 
 object TOPICS {
     const val NAME = "test-topic"
+    const val HEADER_KEY = "headerKey"
+    const val HEADER_VALUE = "headerValue"
 }
